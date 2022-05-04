@@ -1,8 +1,8 @@
-# hello-app
-Based on NGINX and NGINX Plus demos - NGINX-Demos
-
 NGINX webserver that serves a simple page containing its hostname, IP address and port as wells as the request URI and the local time of the webserver.
 ---
+
+# Based on NGINX and NGINX Plus demos - NGINX-Demos
+
 
 How to run:
 
