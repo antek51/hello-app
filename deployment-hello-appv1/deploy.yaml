@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello-app
+  labels:
+    app: hello-app
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: hello-app
+  template:
+    metadata:
+      labels:
+        app: hello-app
+      annotations:
+        kubernetes.io/psp: privileged
+    spec:
+      containers:
+      - name: hello-app
+        image: antek51/hello-appv1:0.1
+        ports:
+        - containerPort: 80
