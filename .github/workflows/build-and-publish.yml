@@ -22,4 +22,4 @@ jobs:
           password: ${{ secrets.GHCR_PAT }}
           repository: antek51/hello-app
           tags: antek51/hello-app:1
-          file: hello-app-v1/Dockerfile
+          path: hello-app-v1
