@@ -17,9 +17,10 @@ jobs:
       - name: 'Build:dockerimage'
         uses: docker/build-push-action@v2        
         with:
+          context: ./hello-app-v1
+          file: ./hello-app-v1/Dockerfile
           registry: ghcr.io
           username: "antek51"
           password: ${{ secrets.GHCR_PAT }}
           repository: antek51/hello-app
           tags: antek51/hello-app:1
-          path: hello-app-v1
