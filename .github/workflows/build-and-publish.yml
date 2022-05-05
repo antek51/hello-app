@@ -4,7 +4,7 @@ on:
   push:
     branches:
     - main
-  pull_request:
+  # pull_request:
 
 jobs:
   build:
@@ -14,13 +14,18 @@ jobs:
     steps:
       - name: "Build:checkout"
         uses: actions/checkout@v2
+
+
+      - name: Log in to the Container registry
+        uses: docker/login-action@f054a8b539a109f9f41c372932f1ae047eff08c9
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
       - name: 'Build:dockerimage'
         uses: docker/build-push-action@v2        
         with:
           context: ./hello-app-v1
           file: ./hello-app-v1/Dockerfile
-          registry: ghcr.io
-          username: "antek51"
-          password: ${{ secrets.GHCR_PAT }}
-          repository: antek51/hello-app
-          tags: antek51/hello-app:1
+          tags: ghcr.io/antek51/hello-app:1
