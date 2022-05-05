@@ -33,5 +33,7 @@ jobs:
         uses: docker/build-push-action@v2        
         with:
           context: ./hello-app-v1
+          push: true
           file: ./hello-app-v1/Dockerfile
-          tags: ghcr.io/antek51/hello-app:1
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
