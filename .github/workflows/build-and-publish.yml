@@ -10,12 +10,13 @@ jobs:
   build:
     name: 'Build'
     runs-on: ubuntu-latest
-    file: hello-app-v1/Dockerfile
+    
     steps:
       - name: "Build:checkout"
         uses: actions/checkout@v2
       - name: 'Build:dockerimage'
         uses: docker/build-push-action@v2
+        file: hello-app-v1/Dockerfile
         with:
           registry: ghcr.io
           username: "antek51"
